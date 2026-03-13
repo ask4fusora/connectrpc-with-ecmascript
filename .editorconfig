@@ -1,0 +1,62 @@
+[*]
+trim_trailing_whitespace = true
+end_of_line = lf
+insert_final_newline = true
+
+[Containerfile]
+indent_style = space
+indent_size = 2
+max_line_length = 100
+
+[*.{yaml,yml}]
+indent_style = space
+indent_size = 2
+max_line_length = 100
+
+[*.proto]
+indent_style = space
+indent_size = 2
+max_line_length = 100
+
+[*.go]
+indent_style = tab
+indent_size = 4
+max_line_length = 100
+
+[go.{mod,work}]
+indent_style = tab
+indent_size = 2
+max_line_length = 100
+
+[.git*]
+max_line_length = 100
+
+[*.md]
+indent_style = space
+indent_size = 1
+max_line_length = 100
+
+[*.json]
+indent_style = space
+indent_size = 2
+max_line_length = 100
+
+[*.{ts,js}]
+indent_style = space
+indent_size = 2
+max_line_length = 100
+
+[*.{tsx,jsx}]
+indent_style = space
+indent_size = 2
+max_line_length = 100
+
+[.*ignore]
+indent_style = space
+indent_size = 2
+max_line_length = 100
+
+[.env.*]
+indent_style = space
+indent_size = 1
+max_line_length = 1000
