@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "start": "bun --bun run ./server.ts"
+    "start": "bun --bun run ./src/server.ts"
   },
   "devDependencies": {
     "@types/bun": "^1.3.10"
