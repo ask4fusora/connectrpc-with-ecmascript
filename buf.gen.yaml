@@ -12,6 +12,10 @@ plugins:
     out: backend/vanilla/gen
     opt:
       - target=ts
+  - remote: buf.build/bufbuild/es
+    out: backend/nestjs-3rd-party/gen
+    opt:
+      - target=ts
 
 managed:
   enabled: true
