@@ -1,4 +1,6 @@
 .zed/
 .vscode/
 
+.task/
+
 gen/
