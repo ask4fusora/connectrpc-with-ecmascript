@@ -1,7 +1,7 @@
 "use client"
 
 import { ConnectError, createClient } from "@connectrpc/connect"
-import { use, useCallback, useEffect, useRef, useState } from "react"
+import { Suspense, use, useCallback, useEffect, useRef, useState } from "react"
 import { CounterService } from "@/gen/counter/v1alpha/counter_pb"
 import { transport } from "@/shared/connectrpc/transports/client"
 
@@ -16,7 +16,7 @@ interface LogEntry {
 // service descriptor and transport (server for server-side, client for client-side).
 const counterClient = createClient(CounterService, transport)
 
-export default function CounterPage({ params }: PageProps<"/[delta]">) {
+function CounterPageInner({ params }: Pick<PageProps<"/[delta]">, "params">) {
   const { delta: deltaStr } = use(params)
 
   // Application State.
@@ -145,11 +145,10 @@ export default function CounterPage({ params }: PageProps<"/[delta]">) {
               type="button"
               onClick={handleExecute}
               disabled={isExecuting || !!parseError}
-              className={`relative inline-flex w-full items-center justify-center rounded-xl border border-transparent px-8 py-4 font-bold text-base text-white shadow-sm transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 sm:w-auto ${
-                isExecuting || !!parseError
-                  ? "cursor-not-allowed bg-indigo-300"
-                  : "bg-indigo-600 hover:bg-indigo-700 hover:shadow-md active:scale-[0.98]"
-              }`}
+              className={`relative inline-flex w-full items-center justify-center rounded-xl border border-transparent px-8 py-4 font-bold text-base text-white shadow-sm transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 sm:w-auto ${isExecuting || !!parseError
+                ? "cursor-not-allowed bg-indigo-300"
+                : "bg-indigo-600 hover:bg-indigo-700 hover:shadow-md active:scale-[0.98]"
+                }`}
             >
               {isExecuting ? (
                 <>
@@ -230,5 +229,19 @@ export default function CounterPage({ params }: PageProps<"/[delta]">) {
         </div>
       </div>
     </div>
+  )
+}
+
+export default function CounterPage({ params }: PageProps<"/[delta]">) {
+  return (
+    <Suspense
+      fallback={
+        <div className="flex min-h-screen flex-col items-center justify-center bg-zinc-50 px-4 py-12 font-sans">
+          <div className="h-8 w-8 animate-spin rounded-full border-4 border-indigo-600 border-t-transparent"></div>
+        </div>
+      }
+    >
+      <CounterPageInner params={params} />
+    </Suspense>
   )
 }
