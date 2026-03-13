@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+
+version: "3"
+
+vars:
+  API_TOOL_COMMAND: buf
+  API_CONTRACT_SPECIFICATIONS_DIRECTORY: proto
+
+tasks:
+  default:
+    desc: Enumerate available execution targets.
+    cmds:
+      - task --list
+
+  # ------------------------------------------------------------------------------------------------
+  # API CONTRACTS (PROTOBUF)
+  # ------------------------------------------------------------------------------------------------
+
+  contract:sync:
+    desc: Refresh Buf dependency lock state from declared module dependencies.
+    cmds:
+      - "{{.API_TOOL_COMMAND}} dep update"
+    sources:
+      - buf.yaml
+    generates:
+      - buf.lock
+
+  contract:generate:
+    desc: Compile Protobuf definitions into target language artifacts.
+    deps:
+      - contract:sync
+    cmds:
+      - "{{.API_TOOL_COMMAND}} generate"
