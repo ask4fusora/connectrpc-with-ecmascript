@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package counter.v1alpha;
+
+message IncreaseCounterRequest {
+  int64 delta = 1;
+}
+
+message IncreaseCounterResponse {
+  int64 current_value = 1;
+}
+
+service CounterService {
+  rpc IncreaseCounter(IncreaseCounterRequest) returns (IncreaseCounterResponse);
+}
