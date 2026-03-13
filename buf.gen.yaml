@@ -2,9 +2,6 @@ version: v2
 
 inputs:
   - directory: proto
-  - module: buf.build/grpc/grpc
-    paths:
-      - grpc/health/v1
 
 plugins:
   - remote: buf.build/bufbuild/es
@@ -12,7 +9,7 @@ plugins:
     opt:
       - target=ts
   - remote: buf.build/bufbuild/es
-    out: backend/counter-service/gen
+    out: backend/vanilla/gen
     opt:
       - target=ts
 
