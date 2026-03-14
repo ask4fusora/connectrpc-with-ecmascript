@@ -14,7 +14,7 @@ export class CounterModule implements OnModuleInit {
         // allow NestJS to resolve them via reflect-metadata.
         private readonly registryService: RegistryService,
         private readonly counterHandler: CounterHandler,
-    ) { }
+    ) {}
 
     public onModuleInit(): void {
         // Dynamically register the handler with the core Connect-RPC registry.

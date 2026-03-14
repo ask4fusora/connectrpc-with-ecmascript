@@ -17,7 +17,7 @@ import { CounterService } from "./counter.service.js"
  */
 @Injectable()
 export class CounterHandler implements RpcHandler<typeof CounterServiceSchema> {
-    constructor(private readonly counterService: CounterService) { }
+    constructor(private readonly counterService: CounterService) {}
 
     /**
      * Generates the Connect-RPC service implementation payload.
