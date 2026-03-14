@@ -31,29 +31,27 @@ without requiring local SSL proxies, the backend servers are explicitly bound to
 which the Connect protocol handles seamlessly.
 
 ```mermaid
-graph LR
-    subgraph Schema["Contract"]
-        Proto[Proto Definitions]
-    end
+---
+config:
+  layout: elk
+---
+flowchart TB
+  subgraph Schema["Contract"]
+    Proto["Proto Definitions"]
+  end
+  subgraph Frontend["Next.js Application (:3000)"]
+    RSC["React Server Components"]
+    Client["Client Components"]
+  end
+  subgraph Backend["Backend Services (:4000)"]
+    NestJS["NestJS + Fastify"]
+    Vanilla["Vanilla Node.js"]
+  end
 
-    subgraph Frontend["Next.js Application (:3000)"]
-        RSC[React Server Components]
-        Client[Client Components]
-    end
-
-    subgraph Backend["Backend Services (:4000)"]
-        NestJS[NestJS + Fastify]
-        Vanilla[Vanilla Node.js]
-    end
-
-    Proto -. "buf generate" .-> Frontend
-    Proto -. "buf generate" .-> Backend
-
-    RSC -- "Connect-Node (HTTP/1.1)" --> NestJS
-    RSC -- "Connect-Node (HTTP/1.1)" --> Vanilla
-
-    Client -- "Connect-Web (HTTP/1.1)" --> NestJS
-    Client -- "Connect-Web (HTTP/1.1)" --> Vanilla
+  Proto -. buf generate .-> Frontend & Backend
+  RSC -- "Connect-Node" --> Network{"HTTP/1.1 Cleartext<br>or HTTP/2 TLS"}
+  Client -- "Connect-Web" --> Network
+  Network --> NestJS & Vanilla
 ```
 
 ## Technology Stack
