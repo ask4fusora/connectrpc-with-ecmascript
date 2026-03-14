@@ -16,7 +16,7 @@ The project is divided into three physical boundaries:
      Dependency Injection to link business logic to generated RPC schemas.
    - `vanilla`: A lean, framework-free implementation using standard `node:http`.
 3. **Frontend Clients (`frontend/`)**: Modern web application built with Next.js 16 that consumes
-   the backend services via both React Server Components (RSC) and interactive Client Components.
+   the backend services via interactive Client Components.
 
 ## Communication Flow
 
@@ -40,7 +40,6 @@ flowchart TB
     Proto["Proto Definitions"]
   end
   subgraph Frontend["Next.js Application (:3000)"]
-    RSC["React Server Components"]
     Client["Client Components"]
   end
   subgraph Backend["Backend Services (:4000)"]
@@ -49,8 +48,7 @@ flowchart TB
   end
 
   Proto -. buf generate .-> Frontend & Backend
-  RSC -- "Connect-Node" --> Network{"HTTP/1.1 Cleartext<br>or HTTP/2 TLS"}
-  Client -- "Connect-Web" --> Network
+  Client -- "Connect-Web" --> Network{"HTTP/1.1 Cleartext<br>or HTTP/2 TLS"}
   Network --> NestJS & Vanilla
 ```
 

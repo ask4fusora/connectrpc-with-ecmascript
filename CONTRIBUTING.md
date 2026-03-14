@@ -50,8 +50,7 @@ Thank you for your interest in contributing to this Connect-RPC project!
 
 - `proto/`: Contains the `.proto` schemas (the single source of truth for the API).
 - `backend/`: Contains the dual server implementations (NestJS and Vanilla).
-- `frontend/`: Contains the Next.js application, featuring both React Server Components (RSC) and
-  Client Components.
+- `frontend/`: Contains the Next.js application, featuring interactive Client Components.
 
 ## Workflow
 

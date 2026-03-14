@@ -24,5 +24,6 @@
 - [ ] I have run `buf generate` if any `.proto` schemas were modified.
 - [ ] I have verified my changes against both the **NestJS** and **Vanilla** backends (if
       applicable).
-- [ ] I have ensured the frontend correctly fetches data via `@connectrpc/connect-web` or RSCs.
+- [ ] I have ensured the frontend correctly fetches data via `@connectrpc/connect-web` or
+      `@connectrpc/connect-node`.
 - [ ] My code follows the existing formatting and linting rules (e.g., via Biome).

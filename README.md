@@ -95,25 +95,15 @@ graph TD
       D1["Connect-Web Client"]
       C --> D1
     end
-
-    subgraph NodeServer["Server Environment (Node.js)"]
-      B["React Server Components"]
-      H["API Routes / Route Handlers"]
-      D2["Connect-Node Client"]
-      B --> D2
-      H --> D2
-    end
   end
 
   I -. "Generates Types & Schemas" .-> D1
-  I -. "Generates Types & Schemas" .-> D2
   I -. "Generates Types & Schemas" .-> F
   I -. "Generates Types & Schemas" .-> G
 
   E{"Network<br/>(HTTP/1.1 Cleartext or HTTP/2 TLS)"}
 
   D1 --> E
-  D2 --> E
 
   subgraph Backends["Standalone Backend Services"]
     F["NestJS + Fastify<br/>Backend<br/>:4000"]
@@ -188,9 +178,6 @@ The communication flow follows these steps:
   styling without leaving your HTML.
 
 - **Connect-Web Client**: For making type-safe API calls from interactive Browser Components.
-
-- **Connect-Node Client**: For executing zero-bundle, server-side RPC calls directly within Next.js
-  React Server Components.
 
 ### Tooling & DevOps
 
@@ -268,8 +255,7 @@ Demonstrates:
 
 A Next.js 16 application that consumes the backend services via Connect RPC clients.
 
-- Type-safe generated client code (`@connectrpc/connect-web` and `@connectrpc/connect-node`)
-- React Server Components (RSC) for zero-bundle server-side RPC execution
+- Type-safe generated client code (`@connectrpc/connect-web`)
 - Client Components for interactive browser-side RPC execution
 - Suspense boundaries for non-blocking asynchronous data fetching
 - Tailwind CSS v4 for styling
