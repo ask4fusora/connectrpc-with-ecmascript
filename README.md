@@ -312,8 +312,6 @@ run after any changes to `.proto` files.
 task contract:generate
 ```
 
-<<<<<<< HEAD
-
 ## Start up frontend.
 
 ```bash
@@ -326,7 +324,7 @@ bun run dev
 bun run start
 ```
 
-======= Generated code will be placed in the respective `src/gen/` directories of the backend and
+Generated code will be placed in the respective `src/gen/` directories of the backend and
 frontend services, as specified in `buf.gen.yaml`.
 
 ### Running the Backend
@@ -374,5 +372,3 @@ Once everything is running (one backend + frontend):
 2. **Backend RPC Target**: The backends automatically mount the Protobuf services based on their
    package paths. For example, the `IncreaseCounter` method is available via HTTP POST at:
    `http://localhost:4000/counter.v1alpha.CounterService/IncreaseCounter`.
-
->>>>>>> 392bbac (docs(readme): simplify and refresh project documentation)
