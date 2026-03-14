@@ -167,7 +167,7 @@ The communication flow follows these steps:
 - **NestJS v10**: Progressive Node.js framework for building efficient server-side applications.
   NestJS provides a clean architecture with dependency injection, modules, and a powerful CLI.
 
-- **Fastify**: Low-overhead, high-performance HTTP server framework used as the NestJS adapter.
+- **Fastify v5**: Low-overhead, high-performance HTTP server framework used as the NestJS adapter.
   Fastify is known for its excellent throughput and low memory usage.
 
 - **Connect RPC**: Modern RPC implementation for TypeScript and Protocol Buffers. Connect RPC
@@ -184,7 +184,7 @@ The communication flow follows these steps:
 - **React 19**: UI library for building component-based interfaces. React 19 brings improved hooks,
   actions, and server components.
 
-- **Tailwind CSS**: Utility-first CSS framework for rapid UI development. Tailwind enables quick
+- **Tailwind CSS v4**: Utility-first CSS framework for rapid UI development. Tailwind enables quick
   styling without leaving your HTML.
 
 - **Connect-Web Client**: For making type-safe API calls from interactive Browser Components.
@@ -272,7 +272,7 @@ A Next.js 16 application that consumes the backend services via Connect RPC clie
 - React Server Components (RSC) for zero-bundle server-side RPC execution
 - Client Components for interactive browser-side RPC execution
 - Suspense boundaries for non-blocking asynchronous data fetching
-- Tailwind CSS for styling
+- Tailwind CSS v4 for styling
 
 ---
 
