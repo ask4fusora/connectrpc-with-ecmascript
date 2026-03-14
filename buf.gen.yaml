@@ -13,7 +13,7 @@ plugins:
     opt:
       - target=ts
   - remote: buf.build/bufbuild/es
-    out: backend/nestjs-fastify-platform/gen
+    out: backend/nestjs-fastify-platform/src/gen
     opt:
       - target=ts
 
