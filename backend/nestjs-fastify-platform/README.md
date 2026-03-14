@@ -113,6 +113,9 @@ Ensure you have generated the Protobuf types (`buf generate` in the workspace ro
 # Install dependencies
 bun install
 
+# Build the server (outputs to dist/)
+bun run build
+
 # Start the server (defaults to port 4000)
 bun run start
 ```
