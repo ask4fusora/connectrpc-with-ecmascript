@@ -4,7 +4,7 @@
   "description": "NestJS with Fastify and ConnectRPC integration",
   "private": true,
   "scripts": {
-    "start": "bun run src/main.ts",
+    "start": "bun run dist/src/main.js",
     "dev": "bun run --watch src/main.ts",
     "build": "tsc"
   },
@@ -20,6 +20,7 @@
     "rxjs": "^7.8.1"
   },
   "devDependencies": {
+    "@biomejs/biome": "^2.4.7",
     "@types/bun": "^1.1.6",
     "@types/node": "^22.5.0",
     "typescript": "^5.5.4"
